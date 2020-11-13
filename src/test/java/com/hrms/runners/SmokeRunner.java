@@ -14,7 +14,7 @@ import io.cucumber.junit.CucumberOptions;
 		, tags = "@smoke", strict = true // when set as true, will fail the execution when undefined step is found
 		, plugin = { "pretty" // will print the steps inside the console
 				, "html:target/cucumberDefaultReports" // generates default html report
-				, "rerun:target/FailedTests.txt" // generates a txt file only with failed tests
+				, "rerun:target/FailedTests.txt", "json:target/cucumber.json" // generates a txt file only with failed tests
 		})
 public class SmokeRunner {
 

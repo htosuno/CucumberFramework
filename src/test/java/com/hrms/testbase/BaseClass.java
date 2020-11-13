@@ -4,6 +4,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -17,11 +18,19 @@ public class BaseClass {
 
 	public static void setUp() {
 		ConfigsReader.readProperties(Constants.CONFIGURATION_FILEPATH);
-
-		switch (ConfigsReader.getPropValue("browser")) {
+		//Look at this line
+		String headless = ConfigsReader.getPropValue("headless");
+		
+		switch (ConfigsReader.getPropValue("browser").toLowerCase()) {
 		case "chrome":
 			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
+			ChromeOptions chromeOptions = new ChromeOptions();
+			if(headless.equalsIgnoreCase("true")) {
+				chromeOptions.setHeadless(true);
+				driver = new ChromeDriver(chromeOptions);
+			}else {
+				driver = new ChromeDriver();
+			}
 			break;
 		case "firefox":
 			WebDriverManager.firefoxdriver().setup();
