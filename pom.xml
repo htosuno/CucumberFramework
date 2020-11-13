@@ -66,6 +66,32 @@
 			<artifactId>poi-ooxml</artifactId>
 			<version>4.1.2</version>
 		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>4.3.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.json/json -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20160810</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.14.3</version>
+			<scope>test</scope>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
@@ -76,7 +102,7 @@
 				<version>3.0.0-M5</version>
 				<configuration>
 					<includes>
-						<include>**/*TestRunner.java</include>
+						<include>**/*APIRunner.java</include>
 					</includes>
 					<testFailureIgnore>true</testFailureIgnore>
 				</configuration>
@@ -102,7 +128,7 @@
 							<inputDirectory>${project.build.directory}</inputDirectory>
 							<jsonFiles>
 								<!-- supports wildcard or name pattern -->
-								<param>**/*.json</param>
+								<param>**/*cucumber.json</param>
 							</jsonFiles>
 
 						</configuration>

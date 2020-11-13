@@ -10,7 +10,7 @@ import io.cucumber.junit.CucumberOptions;
 				, glue = "com/hrms/stepDefinitions" // we need to glue our step definitions - implementation 
 				, dryRun = false //when set as true, will run over the feature steps and identify the missing implementation
 				, monochrome = true // when set as true, will format the console outcome
-				, tags = "@excelTask"
+				, tags = "@deValidation"
 				, strict = true // when set as true, will fail the execution when undefined step is found
 				, plugin = {"pretty" // will print the steps inside the console
 						, "html:target/cucumberDefaultReports" // generates default html report 
